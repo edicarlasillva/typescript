@@ -5,6 +5,7 @@
     "outDir": "./build", // pasta de destino
     // "module": "ESNext",
     "moduleResolution": "node",
+    "strictPropertyInitialization": false
   },
   "include": [
     "src/**/*.ts" // todos os arquivos dentro da pasta src

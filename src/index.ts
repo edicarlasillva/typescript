@@ -30,26 +30,64 @@
 
 
 // Construtores
-class Usuario {
-  nome: string
-  idade: number
-  email: string
+// class Usuario {
+//   nome: string
+//   idade: number
+//   email: string
 
-  // construtor
-  constructor(nome: string, idade: number, email?: string) {
-    this.nome = nome
-    this.idade = idade
-    this.email = email
+//   // construtor
+//   constructor(nome: string, idade: number, email?: string) {
+//     this.nome = nome
+//     this.idade = idade
+//     this.email = email
+//   }
+
+//   saudacao(): void {
+//     const mensagem = `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos${this.email ? `e meu e-mail é ${this.email}. ` : ` 'email não informado.'`}`
+
+//     console.log(mensagem)
+//   }
+// }
+
+// const usuario = new Usuario('Carla', 35)
+// console.log(usuario.saudacao())
+
+// Crie uma classe ContaBancaria com propriedades titular, saldo e um método sacar que reduza o saldo. Adicione um construtor que aceite o titular e um saldo inicial (com um saldo padrão de 0). Crie uma instância da ContaBancaria, realize alguns saques e exiba o saldo final.
+
+class ContaBancaria {
+  titular: string
+  saldo: number
+
+  constructor(titular: string, saldoInicial: number) {
+    this.titular = titular
+    this.saldo = saldoInicial > 0 ? saldoInicial : 0
   }
 
-  saudacao(): void {
-    const mensagem = `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos${this.email ? `e meu e-mail é ${this.email}. ` : ` 'email não informado.'`}`
+  sacar(saque: number): void {
+    if (saque > 0 && saque <= this.saldo) {
+      this.saldo = this.saldo - saque
 
-    console.log(mensagem)
+      console.log(`Saque de R$ ${saque}. Saldo atual: ${this.saldo}`)
+      // this.saldo -= saque
+    } else {
+      console.log('Saldo insuficiente')
+    }
   }
 }
 
-const usuario = new Usuario('Carla', 35)
-console.log(usuario.saudacao())
+const minhaConta = new ContaBancaria('Carla', 2000)
 
-// Crie uma classe ContaBancaria com propriedades titular, saldo e um método sacar que reduza o saldo. Adicione um construtor que aceite o titular e um saldo inicial (com um saldo padrão de 0). Crie uma instância da ContaBancaria, realize alguns saques e exiba o saldo final.
+minhaConta.sacar(500)
+
+interface NotaPonderada {
+  nota: number
+  peso: number
+}
+
+const nota: NotaPonderada[] = [
+  { nota: 8, peso: 3 },
+  { nota: 9, peso: 2 }
+]
+
+
+
